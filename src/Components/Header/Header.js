@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <div className="">
         <div className="navbar bg-base-100 px-5 md:px-20 ">
           <div className="navbar-start ">
             <div className="dropdown">
@@ -116,7 +115,6 @@ const Header = () => {
             </ul>
           </div>
         </div>
-      </div>
     </div>
   );
 };
