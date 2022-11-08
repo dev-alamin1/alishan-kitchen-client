@@ -75,10 +75,10 @@ const Header = () => {
                 <Link>Add service</Link>
               </li>
               <li>
-                <Link>Login</Link>
+                <Link to={'/login'}>Login</Link>
               </li>
               <li>
-                <Link>Register</Link>
+                <Link to={'/register'}>Register</Link>
               </li>
               <li>
                 <Link>Logout</Link>
