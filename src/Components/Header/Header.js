@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/Authprovider";
 
 const Header = () => {
+
+  // context 
+   const {user,logOut} = useContext(AuthContext);
+
+   // logout 
+   const logOutHandler = ()=>
+   {
+           logOut()
+           .then(()=>{
+              toast.success("logout success")
+           })
+           .catch(error=>console.log(error))
+   }
+
+
   return (
     <div>
         <div className="navbar bg-blue-50 px-5 md:px-20 ">
@@ -34,7 +51,7 @@ const Header = () => {
                   <Link>My reviews</Link>
                 </li>
                 <li>
-                  <Link>Add service</Link>
+                  <Link to={'/addfood'}>Add service</Link>
                 </li>
                 <li>
                   <Link>Login</Link>
@@ -69,20 +86,27 @@ const Header = () => {
                 <Link to={"/"}>Home</Link>
               </li>
               <li>
-                <Link>My reviews</Link>
+                  <Link to={'/myreview'}>My reviews</Link>
               </li>
               <li>
-                <Link>Add service</Link>
+                <Link to={'/addfood'}>Add service</Link>
               </li>
-              <li>
-                <Link to={'/login'}>Login</Link>
-              </li>
-              <li>
-                <Link to={'/register'}>Register</Link>
-              </li>
-              <li>
-                <Link>Logout</Link>
-              </li>
+
+             {
+                user?.uid?  <li> <Link onClick={logOutHandler}>Logout</Link> </li>
+                :
+                <>
+                  <li>
+                     <Link to={'/login'}>Login</Link>
+                  </li>
+
+                  <li>
+                    <Link to={'/register'}>Register</Link>
+                  </li>
+                </>
+             }
+
+
               <li>
                 <Link>Blog</Link>
               </li>
