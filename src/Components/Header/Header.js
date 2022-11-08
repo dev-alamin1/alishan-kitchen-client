@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-        <div className="navbar bg-base-100 px-5 md:px-20 ">
+        <div className="navbar bg-blue-50 px-5 md:px-20 ">
           <div className="navbar-start ">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -63,8 +63,8 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="navbar-end mr-4">
-            <ul className="menu menu-horizontal px-5 hidden md:flex">
+          <div className="navbar-end ">
+            <ul className="menu menu-horizontal  hidden md:flex">
               <li>
                 <Link to={"/"}>Home</Link>
               </li>
@@ -85,32 +85,6 @@ const Header = () => {
               </li>
               <li>
                 <Link>Blog</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* user avater */}
-          <div className="dropdown dropdown-end">
-            <label
-              tabIndex={0}
-              className="btn btn-ghost btn-circle avatar tooltip tooltip-left"
-            >
-              <div className="w-full rounded-full ">
-                <img src="" alt="" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link className="justify-between">
-                  {" "}
-                  Profile<span className="badge">New</span>
-                </Link>
-              </li>
-              <li>
-                <Link>Logout</Link>
               </li>
             </ul>
           </div>
