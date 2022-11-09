@@ -16,10 +16,13 @@ const RecipiesCard = ({food}) => {
                 </PhotoView>
             </PhotoProvider>
         </figure>
-        
+
         <div className="card-body">
           <h2 className="card-title">{foodName}</h2>
           <p>{description.slice(0,100)+'...'}</p>
+          <p className="text-gray-800 dark:text-white mt-5 mb-2">
+               Price: <span className="text-orange-500">{price}Tk</span>
+             </p>
           <div className="card-actions justify-end">
              <Link to={`/recipe/description/${_id}`}><button className="btn btn-primary btn-xs">Read More</button></Link>
           </div>

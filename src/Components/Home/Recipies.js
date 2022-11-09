@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import RecipiesCard from "./RecipiesCard";
 
 const Recipies = ({foodServices}) => {
@@ -18,9 +19,13 @@ const Recipies = ({foodServices}) => {
           foodServices.map(food=><RecipiesCard key={food._id} food={food}/>)
         }
         
-       
-
+        
       </div>
+
+       <div className="w-32 mx-auto">
+           <Link className="text-center" to={'/showallfood'}><button className="bg-blue-400 text-white py-1 px-2 rounded">Show All</button></Link>
+       </div>
+
     </div>
   );
 };
