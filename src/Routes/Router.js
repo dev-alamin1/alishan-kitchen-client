@@ -1,9 +1,11 @@
+import { async } from "@firebase/util";
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../Components/Auth/Login";
 import Register from "../Components/Auth/Register";
 import Addfood from "../Components/FoodService/Addfood";
 import Foodreview from "../Components/FoodService/Foodreview";
 import Homepage from "../Components/Home/Homepage";
+import RecipieDescription from "../Components/Home/RecipieDescription";
 import Main from "../Layout/Main";
 
 const router = createBrowserRouter([
@@ -14,12 +16,19 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Homepage/>
+                loader:()=> fetch(`http://localhost:5000/foodservices?limit=${3}`),
+                element:<Homepage/>,
+               
             }
             ,
             {
                 path:'/addfood',
                 element:<Addfood/>
+            },
+            {
+                path:'/recipe/description/:id',
+                element:<RecipieDescription/>,
+                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
             }
             ,
             {
