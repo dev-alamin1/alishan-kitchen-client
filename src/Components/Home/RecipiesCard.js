@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const RecipiesCard = ({food}) => {
 
@@ -9,8 +10,13 @@ const RecipiesCard = ({food}) => {
     return (
         <div className="card card-compact w-auto bg-base-100 shadow-xl">
         <figure>
-          <img src={photoURL} alt="food-recipies" className="w-full h-72"/>
+          <PhotoProvider>
+                <PhotoView src={photoURL}>
+                    <img src={photoURL} alt="food-recipies" className="w-full h-72" style={{ objectFit: 'cover' }}  />
+                </PhotoView>
+            </PhotoProvider>
         </figure>
+        
         <div className="card-body">
           <h2 className="card-title">{foodName}</h2>
           <p>{description.slice(0,100)+'...'}</p>

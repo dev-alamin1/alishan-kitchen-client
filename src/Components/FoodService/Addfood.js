@@ -32,9 +32,11 @@ const Addfood = () => {
 
   return (
     <div className="">
-      <div className="card-body  md:w-[450px] mx-auto mb-10 bg-slate-300 rounded-md mt-10 hover:shadow-lg ">
+      <div className="card-body  w-3/4 mx-auto mb-10 bg-slate-300 rounded-md mt-10 hover:shadow-lg ">
         <h2 className="text-center text-2xl font-bold text-orange-600">Add Food Recipies</h2>
         <form onSubmit={submitHandler}>
+
+          <div className="grid md:grid-cols-2 gap-2">
 
           <div className="form-control">
             <label className="label">
@@ -49,9 +51,6 @@ const Addfood = () => {
             />
           </div>
 
-          
-
-          
 
           <div className="form-control">
             <label className="label">
@@ -65,6 +64,17 @@ const Addfood = () => {
               required
             />
           </div>
+
+
+          </div>
+
+         
+
+          
+
+          
+
+          
 
           <div className="form-control">
             <label className="label">
