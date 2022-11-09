@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const Addfood = () => {
 
@@ -26,7 +27,13 @@ const Addfood = () => {
           body:JSON.stringify(foodService)
         })
          .then(res=>res.json())
-         .then(data=>console.log(data))
+         .then(data=>{
+           if(data.insert)
+           {
+              toast.success("Food service added ");
+              form.reset();
+           }
+         })
 
   }
 
@@ -64,17 +71,9 @@ const Addfood = () => {
               required
             />
           </div>
-
-
           </div>
 
-         
-
-          
-
-          
-
-          
+        
 
           <div className="form-control">
             <label className="label">

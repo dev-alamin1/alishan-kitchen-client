@@ -34,8 +34,8 @@ const Register = () => {
   };
 
   const photURLHandler = (e) => {
-    const imgUrl = e.target.value;
-      setUserInfo({ ...userInfo, imgUrl: imgUrl });
+    const photoURL = e.target.value;
+      setUserInfo({ ...userInfo, photoURL: photoURL });
  
   };
 
@@ -102,6 +102,7 @@ const Register = () => {
 
   const submitHandler = (e)=>{
         e.preventDefault();
+        console.log(userInfo)
         createUser(userInfo.email,userInfo.password)
           .then(result=>{
               updateNameAndPhoto(userInfo.name,userInfo.photoURL)
@@ -123,6 +124,7 @@ const Register = () => {
       <div>
         <div className="card-body md:w-[450px] mx-auto shadow-lg mt-10 ">
           <form onSubmit={submitHandler}>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white">Name</span>
@@ -142,14 +144,16 @@ const Register = () => {
               <label className="label">
                 <span className="label-text text-white">Photo Url</span>
               </label>
+
               <input
                 type="text"
                 name="photoURL"
-                placeholder="image url"
+                placeholder="photo url"
                 className="input input-bordered text-black"
                 required
                 onChange={photURLHandler}
               />
+              
 
               
             </div>

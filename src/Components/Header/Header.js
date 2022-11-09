@@ -44,24 +44,34 @@ const Header = () => {
               <li>
                 <Link to={"/"}>Home</Link>
               </li>
-              <li>
-                <Link>My reviews</Link>
-              </li>
-              <li>
-                <Link to={"/addfood"}>Add service</Link>
-              </li>
-              <li>
-                <Link>Login</Link>
-              </li>
-              <li>
-                <Link>Register</Link>
-              </li>
-              <li>
-                <Link>Logout</Link>
-              </li>
-              <li>
-                <Link>Blog</Link>
-              </li>
+              {user?.uid ? (
+              <>
+                <li>
+                  <Link to={"/myreview"}>My reviews</Link>
+                </li>
+                <li>
+                  <Link to={"/addfood"}>Add service</Link>
+                </li>
+                <li>
+                  {" "}
+                  <Link onClick={logOutHandler}>Logout</Link>{" "}
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to={"/login"}>Login</Link>
+                </li>
+
+                <li>
+                  <Link to={"/register"}>Register</Link>
+                </li>
+              </>
+            )}
+
+            <li>
+              <Link>Blog</Link>
+            </li>
             </ul>
           </div>
           <div className="hidden md:flex items-center gap-1">

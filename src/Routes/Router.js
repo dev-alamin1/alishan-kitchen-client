@@ -5,9 +5,11 @@ import Register from "../Components/Auth/Register";
 import Addfood from "../Components/FoodService/Addfood";
 import AllFoodService from "../Components/FoodService/AllFoodService";
 import Foodreview from "../Components/FoodService/Foodreview";
+import Myreview from "../Components/FoodService/Myreview";
 import Homepage from "../Components/Home/Homepage";
 import RecipieDescription from "../Components/Home/RecipieDescription";
 import Main from "../Layout/Main";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
             ,
             {
                 path:'/addfood',
-                element:<Addfood/>
+                element:<PrivateRoute><Addfood/></PrivateRoute>
             },
             {
                 path:'/showallfood',
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
             ,
             {
                 path:'/myreview',
-                element: <Foodreview/>
+                element: <PrivateRoute><Myreview/></PrivateRoute>
             }
             ,
             {

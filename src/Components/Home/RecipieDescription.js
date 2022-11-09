@@ -9,6 +9,7 @@ const RecipieDescription = () => {
   const recipe = useLoaderData();
 
   const {user} = useContext(AuthContext);
+  console.log(user)
   const [reviewReload,setReviewReload] = useState(false);
   const [reviews,setReview] = useState([]);
 
@@ -157,7 +158,7 @@ const RecipieDescription = () => {
 
         <div>
          
-            <div className="flex flex-col items-center w-full">
+            <div className="flex flex-col mt-5 items-center w-full">
               
               <form onSubmit={submitReview} className="flex flex-col w-full">
                 <textarea
