@@ -91,6 +91,7 @@ const Addfood = () => {
                 className="textarea textarea-bordered w-full h-44"
                 name="description"
                 placeholder="Description"
+                required
               ></textarea>
             </div>
           </div>
@@ -103,7 +104,8 @@ const Addfood = () => {
               <textarea
                 className="textarea textarea-bordered w-full h-44"
                 name="materials"
-                placeholder="Materials"
+                placeholder="Ingredients"
+                required
               ></textarea>
             </div>
           </div>
@@ -117,6 +119,7 @@ const Addfood = () => {
                 className="textarea textarea-bordered w-full h-44"
                 name="instruction"
                 placeholder="Instruction"
+                required
               ></textarea>
             </div>
           </div>

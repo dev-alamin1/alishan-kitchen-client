@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import RecipiesCard from "../Home/RecipiesCard";
 
 const AllFoodService = () => {
   const [allRecipes, setAllRecipies] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // load data 
 
   useEffect(() => {
     fetch(`https://alishan-kitchen.vercel.app/foodservices`)
@@ -20,6 +23,12 @@ const AllFoodService = () => {
 
   return (
     <section className="py-6 sm:py-12  text-gray-100">
+
+     <Helmet>
+        <title>Alishan Kitchen - All Service</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
+
       <div className="container p-6 mx-auto space-y-8">
         <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold text-red-400">Special Recipies</h2>

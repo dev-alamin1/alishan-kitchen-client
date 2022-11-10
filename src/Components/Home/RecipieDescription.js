@@ -76,7 +76,7 @@ const RecipieDescription = () => {
   return (
     <div>
       <Helmet>
-        <title>Alishan Kitchen - Food Service Details</title>
+        <title>Alishan Kitchen - Service Details</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
 

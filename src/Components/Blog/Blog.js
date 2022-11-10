@@ -1,10 +1,17 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Blog = () => {
   return (
     <div>
      
       <div className="w-4/5 md:w-2/3  mx-auto py-20">
+
+      <Helmet>
+        <title>Alishan Kitchen - Blog</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
+
       <h2 className="text-center text-5xl mb-10">Latest Blogs </h2>
         {/* first question */}
         <div
@@ -19,8 +26,8 @@ const Blog = () => {
               <table className="table table-zebra w-full">
                 <thead>
                   <tr>
-                    <th>Sql</th>
-                    <th>Nosql</th>
+                    <th className="font-bold text-xl">Sql</th>
+                    <th className="font-bold text-xl">Nosql</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -124,8 +131,8 @@ const Blog = () => {
                 <thead>
                   <tr>
                     
-                    <th>Sql</th>
-                    <th>Nosql</th>
+                    <th className="font-bold text-xl">JavScript</th>
+                    <th className="font-bold text-xl">Nodejs</th>
                   </tr>
                 </thead>
                 <tbody>

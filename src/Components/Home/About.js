@@ -1,15 +1,9 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const About = () => {
   return (
     <section className="dark:bg-gray-800 dark:text-gray-100">
-
-      <Helmet>
-        <title>Alishan Kitchen - About</title>
-        <link rel="canonical" href="https://www.tacobell.com/" />
-      </Helmet>
 
       <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
         <div>

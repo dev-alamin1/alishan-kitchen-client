@@ -15,7 +15,7 @@ const Homepage = () => {
         <div>
             <div className='px-5 md:px-20'>
                 <Helmet>
-                    <title>Alishan Kitchen - Home</title>
+                    <title>Alishan Kitchen - Home </title>
                     <link rel="canonical" href="https://www.tacobell.com/" />
                  </Helmet>
                 <Banner/>
