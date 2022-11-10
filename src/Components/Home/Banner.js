@@ -16,10 +16,10 @@ const Banner = () => {
           <div className="md:w-1/2">
             <h1 className="text-5xl font-bold">
               WELCOME TO <br />
-              <span className="text-blue-400 mt-2">Mimi's KITCHEN !</span>
+              <span className="text-blue-400 mt-2">Alishan KITCHEN !</span>
             </h1>
             <p className="py-6">
-              Mimi Kitchen is a kind of cloud kitchen. Here, cooking tips and
+              Alishan Kitchen is a kind of cloud kitchen. Here, cooking tips and
               instructions are shared for various types of food recipes. By
               looking at the tips and instructions, you can make these recipes
               at home. Through this web site you can order different types of

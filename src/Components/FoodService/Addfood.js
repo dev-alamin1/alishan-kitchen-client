@@ -42,7 +42,7 @@ const Addfood = () => {
   return (
     <div className="">
       <Helmet>
-        <title>Mimi Kitchen - Add Food Service</title>
+        <title>Alishan Kitchen - Add Food Service</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
 

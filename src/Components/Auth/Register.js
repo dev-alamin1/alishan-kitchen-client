@@ -123,7 +123,7 @@ const Register = () => {
   return (
     <div className="auth-hero">
       <Helmet>
-        <title>Mimi Kitchen - Register</title>
+        <title>Alishan Kitchen - Register</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
 

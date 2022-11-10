@@ -5,17 +5,38 @@ import { AuthContext } from "../../Context/Authprovider";
 import MyreviewRow from "./MyreviewRow";
 
 const Myreview = () => {
-  const { user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
   // this for review
   useEffect(() => {
-    if (user?.uid) {
-      fetch(`http://localhost:5000/feedback/user/${user?.uid}`)
-        .then((res) => res.json())
-        .then((data) => setReviews(data));
-    }
-  }, [user?.uid]);
+
+
+     if(user?.email)
+     {
+
+      fetch(`http://localhost:5000/feedback?email=${user?.email}`,{
+        headers:{
+          authorization: `Bearer ${localStorage.getItem('alishanToken')}`
+        }
+      })
+        .then((res) =>{
+           if(res.status === 401 || res.status === 402 || res.status === 403)
+           {
+             return logOut();
+           }
+           return res.json();
+        })
+        .then((data) => {
+
+          // console.log('message ',data)
+          setReviews(data)
+        });
+
+     }
+
+
+  }, [user?.email]);
 
   // review delete handler
 
@@ -38,7 +59,7 @@ const Myreview = () => {
   return (
     <div>
       <Helmet>
-        <title>Mimi Kitchen - Review</title>
+        <title>Alishan Kitchen - Review</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
 

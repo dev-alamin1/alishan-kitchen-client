@@ -8,7 +8,7 @@ const About = () => {
           <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
             <div className="lg:col-start-2">
               <h3 className="text-2xl font-bold tracking-tight sm:text-3xl dark:text-gray-50">
-                About Mimi Kitchen
+                About Alishan Kitchen
               </h3>
 
               <div className="mt-12 space-y-12">

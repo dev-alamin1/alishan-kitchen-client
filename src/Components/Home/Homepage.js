@@ -8,18 +8,18 @@ import Recipies from './Recipies';
 
 
 const Homepage = () => {
-    const foodServices = useLoaderData();
+    const allRecipes = useLoaderData();
     // console.log(foodServices)
     
     return (
         <div>
             <div className='px-5 md:px-20'>
                 <Helmet>
-                    <title>Mimi Kitchen - Home</title>
+                    <title>Alishan Kitchen - Home</title>
                     <link rel="canonical" href="https://www.tacobell.com/" />
                  </Helmet>
                 <Banner/>
-                <Recipies foodServices={foodServices} />
+                <Recipies foodServices={allRecipes} />
                 <Contact/>
                 <Newsletter/>
 

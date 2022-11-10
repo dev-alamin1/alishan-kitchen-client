@@ -30,7 +30,7 @@ const RecipieDescription = () => {
     price,
   } = recipe;
 
-  const ingredients = materials.split(",");
+  const ingredients = materials.split(".");
   const cookingInstructions = instruction.split(".");
 
   // submit review
@@ -76,7 +76,7 @@ const RecipieDescription = () => {
   return (
     <div>
       <Helmet>
-        <title>Mimi Kitchen - Food Service Details</title>
+        <title>Alishan Kitchen - Food Service Details</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
 
@@ -104,9 +104,9 @@ const RecipieDescription = () => {
                 <h2 className="text-3xl text-amber-500">Ingredients </h2>
 
                 <div className="w-full">
-                  <div className="mt-5 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+                  <div className="mt-5 w-full  bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
                     <div
-                      className="py-2 divide-y divide-gray-100"
+                      className="py-2 "
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"
@@ -127,9 +127,9 @@ const RecipieDescription = () => {
                 </h2>
 
                 <div className="w-full">
-                  <div className="mt-5 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+                  <div className="mt-5 w-full   bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
                     <div
-                      className="py-2 divide-y divide-gray-100"
+                      className="py-2"
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"

@@ -7,7 +7,7 @@ const Foodreview = ({ review }) => {
   return (
     <div className="container flex flex-col w-full mb-2 mt-5  p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-200 dark:text-gray-100">
       <Helmet>
-        <title>Mimi Kitchen - Review</title>
+        <title>Alishan Kitchen - Review</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
       <div className="flex justify-between p-4">

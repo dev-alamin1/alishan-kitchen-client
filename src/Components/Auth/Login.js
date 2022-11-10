@@ -7,22 +7,29 @@ import "./Login.css";
 
 const Login = () => {
   const { logIn, logInWithGoogle, logInWithGithub, loading } =
-    useContext(AuthContext);
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  const navigate = useNavigate();
+  useContext(AuthContext);
 
+  // login redirect 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || '/';
+
+
+  // set user info
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
   });
 
+  // store email and password error
   const [error, setError] = useState({
     emailError: "",
     passwordError: "",
     generalError: "",
   });
 
+
+  // password validation
   const passwordHandler = (e) => {
     const password = e.target.value;
 
@@ -64,9 +71,32 @@ const Login = () => {
     e.preventDefault();
 
     logIn(userInfo.email, userInfo.password)
+
       .then((result) => {
-        toast.success("Login success");
-        navigate(from, { replace: true });
+
+        const user = result.user;
+       
+        const currentUser = {
+          email:user.email
+        }
+
+          // get jwt token
+          fetch('http://localhost:5000/jwt',{
+            method:'POST',
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(currentUser)
+          })
+          .then(res=>res.json())
+          .then(data=>{
+          
+            // store token in localstorage 
+            localStorage.setItem('alishanToken',data.token);
+            toast.success("Login success");
+           navigate(from, { replace: true });
+
+          })
       })
       .catch((error) => console.log(error));
   };
@@ -74,8 +104,32 @@ const Login = () => {
   const googleLoginHandler = () => {
     logInWithGoogle()
       .then((result) => {
-        toast.success("Login success");
-        navigate(from, { replace: true });
+
+
+        const user = result.user;
+       
+        const currentUser = {
+          email:user.email
+        }
+
+          // get jwt token
+          fetch('http://localhost:5000/jwt',{
+            method:'POST',
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(currentUser)
+          })
+          .then(res=>res.json())
+          .then(data=>{
+          
+            // store token in localstorage 
+            localStorage.setItem('alishanToken',data.token);
+            toast.success("Login success");
+           navigate(from, { replace: true });
+
+          })
+
       })
       .catch((error) => console.log(error));
   };
@@ -83,8 +137,31 @@ const Login = () => {
   const githubLoginHandler = () => {
     logInWithGithub()
       .then((result) => {
-        toast.success("Login success");
-        navigate(from, { replace: true });
+
+        const user = result.user;
+       
+        const currentUser = {
+          email:user.email
+        }
+
+          // get jwt token
+          fetch('http://localhost:5000/jwt',{
+            method:'POST',
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(currentUser)
+          })
+          .then(res=>res.json())
+          .then(data=>{
+          
+            // store token in localstorage 
+            localStorage.setItem('alishanToken',data.token);
+            toast.success("Login success");
+           navigate(from, { replace: true });
+
+          })
+
       })
       .catch((error) => console.log(error));
   };
@@ -98,7 +175,7 @@ const Login = () => {
   return (
     <div className="auth-hero h-screen">
       <Helmet>
-        <title>Mimi Kitchen - Login</title>
+        <title>Alishan Kitchen - Login</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
       <div>

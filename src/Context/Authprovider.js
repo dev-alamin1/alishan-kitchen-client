@@ -58,6 +58,7 @@ const Authprovider = ({children}) => {
 
 
     const logOut = () =>{
+        localStorage.removeItem('alishanToken');
         return signOut(auth);
     }
 

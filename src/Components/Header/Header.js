@@ -79,7 +79,7 @@ const Header = () => {
               to="/"
               className="text-2xl font-bold text-orange-400 font-[Poppins]"
             >
-             Mimi KITCHEN 
+             Alishan Kitchen 
             </Link>
           </div>
         </div>
