@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../Components/Auth/Login";
 import Register from "../Components/Auth/Register";
 import Blog from "../Components/Blog/Blog";
+import Error from "../Components/Error/Error";
 import Addfood from "../Components/FoodService/Addfood";
 import AllFoodService from "../Components/FoodService/AllFoodService";
 import EditReview from "../Components/FoodService/EditReview";
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     {
         path:'/',
         element:<Main/>,
-        errorElement:<div>Ooops something went wrong</div>,
+        errorElement:<Error/>,
         children:[
             {
                 path:'/',
