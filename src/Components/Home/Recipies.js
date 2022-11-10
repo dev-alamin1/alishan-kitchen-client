@@ -9,10 +9,10 @@ const Recipies = ({foodServices}) => {
   return (
 
     
-    <div className="recipes-container p-5 mt-20 mb-10 md:mt-10 bg-slate-200 px-10 rounded-lg">
+    <div className="recipes-container p-5 mt-20 mb-10 md:mt-10  px-10 rounded-lg">
 
-       <h2 className="text-center text-4xl mb-2">My Special Recipies</h2>
-       <p className="text-center">Lot of spychy recipe here </p>
+       <h3 className="text-2xl text-center font-bold tracking-tight sm:text-3xl ">Special Recipies Tips</h3>
+       
 
       <div className="grid md:grid-cols-3 gap-10 mt-5 mb-5">
         {

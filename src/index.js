@@ -6,6 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import Authprovider from './Context/Authprovider';
 import {HelmetProvider } from 'react-helmet-async';
 
+
+import 'swiper/less';
+import 'swiper/less/navigation';
+import 'swiper/less/pagination';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

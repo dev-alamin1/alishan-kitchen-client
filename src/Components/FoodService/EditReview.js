@@ -6,7 +6,6 @@ const EditReview = () => {
   const review = useLoaderData();
   const [updateReview, setUpdateReview] = useState(review);
 
-
   // review or feedback edit handler
 
   const handleUpdate = async (e) => {
@@ -24,7 +23,7 @@ const EditReview = () => {
       });
   };
 
-  // when wrting on input, then value will save hare 
+  // when wrting on input, then value will save hare
 
   const handleInputChange = (e) => {
     const fieldName = e.target.name;

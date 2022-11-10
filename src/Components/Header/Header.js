@@ -75,14 +75,11 @@ const Header = () => {
             </ul>
           </div>
           <div className="hidden md:flex items-center gap-1">
-            <Link to="/">
-              <img src="" alt="" className="w-16 h-10" />
-            </Link>
             <Link
               to="/"
               className="text-2xl font-bold text-orange-400 font-[Poppins]"
             >
-              Ranna Ghor
+             Mimi KITCHEN 
             </Link>
           </div>
         </div>

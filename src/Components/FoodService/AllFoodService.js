@@ -15,7 +15,7 @@ const AllFoodService = () => {
   return (
     <div className="w-full bg-white p-12">
       <Helmet>
-        <title>Joya Kitchen - AlL Food Service</title>
+        <title>Mimi Kitchen - AlL Food Service</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
 

@@ -6,8 +6,8 @@ import { AuthContext } from "../../Context/Authprovider";
 import "./Login.css";
 
 const Login = () => {
-
-  const {logIn,logInWithGoogle,logInWithGithub,loading} = useContext(AuthContext);
+  const { logIn, logInWithGoogle, logInWithGithub, loading } =
+    useContext(AuthContext);
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -25,19 +25,17 @@ const Login = () => {
 
   const passwordHandler = (e) => {
     const password = e.target.value;
-    
+
     if (password === "") {
       setError({ ...error, passwordError: "Password can not be empty " });
       setUserInfo({ ...userInfo, password: "" });
-    }
-     else if (password.length < 6) {
+    } else if (password.length < 6) {
       setError({
         ...error,
         passwordError: "Password at lest 6 characters length ",
       });
       setUserInfo({ ...userInfo, password: "" });
-    } 
-     else {
+    } else {
       setError({ ...error, passwordError: "" });
       setUserInfo({ ...userInfo, password: password });
     }
@@ -45,17 +43,18 @@ const Login = () => {
 
   const emailHandler = (e) => {
     const email = e.target.value;
-    
+
     if (email === "") {
       setError({ ...error, emailError: " Email must not be empty " });
       setUserInfo({ ...userInfo, email: "" });
-    } 
-    else if (!email.match(/^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/)) {
+    } else if (
+      !email.match(
+        /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
+      )
+    ) {
       setError({ ...error, emailError: " Please provide a valid email " });
       setUserInfo({ ...userInfo, email: "" });
-
-    }
-     else {
+    } else {
       setError({ ...error, emailError: "" });
       setUserInfo({ ...userInfo, email: email });
     }
@@ -64,47 +63,44 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-     logIn(userInfo.email, userInfo.password)
-          .then((result)=>{
-            toast.success("Login success")
-            navigate(from,{replace:true})
-          })
-          .catch(error=>console.log(error));
+    logIn(userInfo.email, userInfo.password)
+      .then((result) => {
+        toast.success("Login success");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
   };
 
-  const googleLoginHandler = ()=>{
-           logInWithGoogle()
-           .then((result)=>{
-            toast.success("Login success")
-            navigate(from,{replace:true})
-          })
-          .catch(error=>console.log(error));
+  const googleLoginHandler = () => {
+    logInWithGoogle()
+      .then((result) => {
+        toast.success("Login success");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const githubLoginHandler = () => {
+    logInWithGithub()
+      .then((result) => {
+        toast.success("Login success");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
+  };
+
+  // set loading
+
+  if (loading) {
+    return <progress className="progress w-full"></progress>;
   }
-
-  const githubLoginHandler  = ()=>{
-        logInWithGithub()
-        .then((result)=>{
-          toast.success("Login success")
-          navigate(from,{replace:true})
-        })
-        .catch(error=>console.log(error));
-          
-  }
-
-  // set loading 
-
-  if(loading)
-  {
-    return <progress className="progress w-full"></progress>
-  }
-
 
   return (
     <div className="auth-hero h-screen">
-         <Helmet>
-                <title>Joya Kitchen - Login</title>
-                <link rel="canonical" href="https://www.tacobell.com/" />
-           </Helmet>
+      <Helmet>
+        <title>Mimi Kitchen - Login</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <div>
         <div className="card-body md:w-[450px] mx-auto shadow-lg mt-10 ">
           <form onSubmit={submitHandler}>
@@ -177,8 +173,10 @@ const Login = () => {
 
           <div className="flex gap-1">
             <div className="w-1/2 bg-orange-400 text-center rounded-md text-white hover:bg-slate-500">
-              <button onClick={googleLoginHandler} className="py-2 flex items-center">
-              
+              <button
+                onClick={googleLoginHandler}
+                className="py-2 flex items-center"
+              >
                 <p className="ml-2 md:ml-4">
                   LogIn with <span className="inline-block">Google</span>
                 </p>
@@ -186,8 +184,10 @@ const Login = () => {
             </div>
 
             <div className="w-1/2  bg-orange-400 text-center rounded-md text-white hover:bg-slate-500">
-              <button onClick={githubLoginHandler} className="py-2 flex items-center">
-              
+              <button
+                onClick={githubLoginHandler}
+                className="py-2 flex items-center"
+              >
                 <p className="ml-2 md:ml-4">
                   LogIn with <span className="inline-block">Github</span>
                 </p>

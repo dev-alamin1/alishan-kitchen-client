@@ -9,17 +9,16 @@ import { Helmet } from "react-helmet-async";
 const RecipieDescription = () => {
   const recipe = useLoaderData();
 
-  const {user} = useContext(AuthContext);
-  console.log(user)
-  const [reviewReload,setReviewReload] = useState(false);
-  const [reviews,setReview] = useState([]);
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  const [reviewReload, setReviewReload] = useState(false);
+  const [reviews, setReview] = useState([]);
 
-
-  useEffect(()=>{
-        fetch(`http://localhost:5000/feedback/${recipe._id}`)
-         .then(res=>res.json())
-         .then(data=>setReview(data))
-  },[reviewReload,recipe._id])
+  useEffect(() => {
+    fetch(`http://localhost:5000/feedback/${recipe._id}`)
+      .then((res) => res.json())
+      .then((data) => setReview(data));
+  }, [reviewReload, recipe._id]);
 
   const {
     photoURL,
@@ -34,53 +33,52 @@ const RecipieDescription = () => {
   const ingredients = materials.split(",");
   const cookingInstructions = instruction.split(".");
 
-  // submit review 
+  // submit review
 
-  const submitReview = (e)=>
-  {
-         e.preventDefault();
-         const form = e.target;
-         const feedback = form.feedback.value;
-         const userEmail = user.email;
-         const userPhotoURL = user.photoURL;
-         const displayName = user.displayName;
-         const uid = user.uid;
-         const recipePostId = _id;
+  const submitReview = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const feedback = form.feedback.value;
+    const userEmail = user.email;
+    const userPhotoURL = user.photoURL;
+    const displayName = user.displayName;
+    const uid = user.uid;
+    const recipePostId = _id;
 
-        const  userFeedBack = {
+    const userFeedBack = {
+      feedback,
+      userEmail,
+      userPhotoURL,
+      displayName,
+      uid,
+      recipePostId,
+    };
 
-            feedback,userEmail,userPhotoURL,displayName,uid,recipePostId
+    // send to server with post api
 
-         }
-
-         // send to server with post api
-
-         fetch(`http://localhost:5000/add/feedback`,{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
-            },
-            body:JSON.stringify(userFeedBack)
-         })
-          .then(res=>res.json())
-          .then(data=>{
-            if(data.insert)
-            {
-                setReviewReload(true);
-                form.reset();
-                toast.success("Feeback successfully added");
-            }
-          })
-
-  }
+    fetch(`http://localhost:5000/add/feedback`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userFeedBack),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insert) {
+          setReviewReload(true);
+          form.reset();
+          toast.success("Feeback successfully added");
+        }
+      });
+  };
 
   return (
     <div>
-
-          <Helmet>
-                <title>Joya Kitchen - Food Service Details</title>
-                <link rel="canonical" href="https://www.tacobell.com/" />
-           </Helmet>
+      <Helmet>
+        <title>Mimi Kitchen - Food Service Details</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
 
       <div className="md:w-2/3 px-10 md:mx-auto py-10 ">
         <div className="card card-compact w-auto bg-base-100 shadow-xl">
@@ -151,56 +149,46 @@ const RecipieDescription = () => {
         {/* review  */}
 
         <div>
-
-
-          {
-            reviews.map(review=><Foodreview key={review._id} review={review}/>)
-          }
-          
+          {reviews.map((review) => (
+            <Foodreview key={review._id} review={review} />
+          ))}
         </div>
-        
-
 
         {/* write comment */}
 
         <div>
-         
-            <div className="flex flex-col mt-5 items-center w-full">
-              
-              <form onSubmit={submitReview} className="flex flex-col w-full">
-                <textarea
-                  rows="3"
-                  placeholder="Message..."
-                  className="p-2 rounded-md resize-none border bg-blue-200" name="feedback"
-                ></textarea>
+          <div className="flex flex-col mt-5 items-center w-full">
+            <form onSubmit={submitReview} className="flex flex-col w-full">
+              <textarea
+                rows="3"
+                placeholder="Message..."
+                className="p-2 rounded-md resize-none border bg-blue-200"
+                name="feedback"
+              ></textarea>
 
-
-                { user?.uid ? <button onClick={()=>setReviewReload(false)}
+              {user?.uid ? (
+                <button
+                  onClick={() => setReviewReload(false)}
                   type="submit"
                   className="py-4 my-2 font-semibold text-white rounded-md bg-violet-400"
                 >
                   Leave feedback
                 </button>
-
-                :
-                
-                <Link to={'/login'} >
-                 <button
-                  type="button"
-                  className="py-4 my-2 font-semibold w-full rounded-md text-white bg-violet-400"
-                >
-                  Login to continue review
-                </button>
+              ) : (
+                <Link to={"/login"}>
+                  <button
+                    type="button"
+                    className="py-4 my-2 font-semibold w-full rounded-md text-white bg-violet-400"
+                  >
+                    Login to continue review
+                  </button>
                 </Link>
-            
-                }
-              </form>
-            </div>
-           
+              )}
+            </form>
           </div>
         </div>
       </div>
- 
+    </div>
   );
 };
 

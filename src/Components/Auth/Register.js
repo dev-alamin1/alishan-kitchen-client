@@ -6,9 +6,13 @@ import { AuthContext } from "../../Context/Authprovider";
 import "./Register.css";
 
 const Register = () => {
-
-  const {createUser,updateNameAndPhoto,
-    registerWithGoogle,registerWithGithub,loading} = useContext(AuthContext);
+  const {
+    createUser,
+    updateNameAndPhoto,
+    registerWithGoogle,
+    registerWithGithub,
+    loading,
+  } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -19,43 +23,38 @@ const Register = () => {
     password: "",
   });
 
-
   const [error, setError] = useState({
     emailError: "",
     passwordError: "",
     generalError: "",
   });
 
-
-
   const userNameHandler = (e) => {
     const name = e.target.value;
-      setUserInfo({ ...userInfo, name: name });
-    
+    setUserInfo({ ...userInfo, name: name });
   };
 
   const photURLHandler = (e) => {
     const photoURL = e.target.value;
-      setUserInfo({ ...userInfo, photoURL: photoURL });
- 
+    setUserInfo({ ...userInfo, photoURL: photoURL });
   };
-
-
-
 
   const userEmailHandler = (e) => {
     const email = e.target.value;
-  
-    if (email === "") {
 
+    if (email === "") {
       setError({ ...error, emailError: "Email must not be empty" });
       setUserInfo({ ...userInfo, email: "" });
-
-    } else if (!email.match(/^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/)) {
-
-      setError({ ...error, emailError: "Please provide a valid email address" });
+    } else if (
+      !email.match(
+        /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
+      )
+    ) {
+      setError({
+        ...error,
+        emailError: "Please provide a valid email address",
+      });
       setUserInfo({ ...userInfo, email: "" });
-
     } else {
       setError({ ...error, emailError: "" });
       setUserInfo({ ...userInfo, email: email });
@@ -69,75 +68,68 @@ const Register = () => {
       setError({ ...error, passwordError: "Password must not be empty " });
 
       setUserInfo({ ...userInfo, password: "" });
-
     } else if (password.length < 6) {
       setError({
         ...error,
         passwordError: "Password at lest 6 characters length ",
       });
       setUserInfo({ ...userInfo, password: "" });
-    }   else {
+    } else {
       setError({ ...error, passwordError: "" });
       setUserInfo({ ...userInfo, password: password });
     }
   };
 
-  const googleHander = ()=>{
-       registerWithGoogle()
-         .then(result=>{
-          toast.success("User register success")
-          navigate('/')
-         })
-  }
+  const googleHander = () => {
+    registerWithGoogle().then((result) => {
+      toast.success("User register success");
+      navigate("/");
+    });
+  };
 
+  const githubHander = () => {
+    registerWithGithub().then((result) => {
+      toast.success("User register success");
+      navigate("/");
+      const user = result.user;
+      console.log(user);
+    });
+  };
 
-  const githubHander = ()=>{
-    registerWithGithub()
-      .then(result=>{
-         toast.success("User register success")
-          navigate('/')
-          const user = result.user;
-          console.log(user)
-      })
-}
-
-  const submitHandler = (e)=>{
-        e.preventDefault();
-        console.log(userInfo)
-        createUser(userInfo.email,userInfo.password)
-          .then(result=>{
-              updateNameAndPhoto(userInfo.name,userInfo.photoURL)
-               .then(()=>{
-                    toast.success("User register success")
-                    e.target.reset();
-                    navigate('/')
-               })
-               .catch(error=>{
-                setError({ ...error, generalError: error.message });
-               })
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(userInfo);
+    createUser(userInfo.email, userInfo.password)
+      .then((result) => {
+        updateNameAndPhoto(userInfo.name, userInfo.photoURL)
+          .then(() => {
+            toast.success("User register success");
+            e.target.reset();
+            navigate("/");
           })
-          .catch(error=>setError({ ...error, generalError: error.message }))
-  }
+          .catch((error) => {
+            setError({ ...error, generalError: error.message });
+          });
+      })
+      .catch((error) => setError({ ...error, generalError: error.message }));
+  };
 
-  // set loading 
+  // set loading
 
-  if(loading)
-  {
-    return <progress className="progress w-full"></progress>
+  if (loading) {
+    return <progress className="progress w-full"></progress>;
   }
 
   return (
     <div className="auth-hero">
-
-         <Helmet>
-                <title>Joya Kitchen - Register</title>
-                <link rel="canonical" href="https://www.tacobell.com/" />
-           </Helmet>
+      <Helmet>
+        <title>Mimi Kitchen - Register</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
 
       <div>
         <div className="card-body md:w-[450px] mx-auto shadow-lg mt-10 ">
           <form onSubmit={submitHandler}>
-
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white">Name</span>
@@ -150,7 +142,6 @@ const Register = () => {
                 required
                 onChange={userNameHandler}
               />
-
             </div>
 
             <div className="form-control">
@@ -166,9 +157,6 @@ const Register = () => {
                 required
                 onChange={photURLHandler}
               />
-              
-
-              
             </div>
 
             <div className="form-control">
@@ -183,14 +171,13 @@ const Register = () => {
                 onChange={userEmailHandler}
                 required
               />
-               {error.emailError && (
+              {error.emailError && (
                 <label className="label">
                   <p className="label-text-alt link text-red-400 link-hover">
                     {error.emailError}
                   </p>
                 </label>
               )}
-              
             </div>
 
             <div className="form-control">
