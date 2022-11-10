@@ -46,6 +46,7 @@ const Login = () => {
     }
   };
 
+  // email error handle 
   const emailHandler = (e) => {
     const email = e.target.value;
 
@@ -64,6 +65,8 @@ const Login = () => {
       setUserInfo({ ...userInfo, email: email });
     }
   };
+
+  //from submit handler
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -220,7 +223,7 @@ const Login = () => {
                 <span>
                   <small>
                     Don't have account ?
-                    <Link to={"/register"} className="text-red-500">
+                    <Link to={"/register"} className="hover:bg-red-200 hover:text-white">
                       Register
                     </Link>
                   </small>
