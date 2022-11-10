@@ -32,11 +32,11 @@ const AllFoodService = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {allRecipes.map((recipe) => (
           <div
             key={recipe._id}
-            className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto"
+            className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-96 cursor-pointer m-auto"
           >
             <PhotoProvider>
               <PhotoView src={recipe.photoURL}>

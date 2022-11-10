@@ -57,34 +57,34 @@ const Myreview = () => {
                     <tr>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                        className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase"
                       >
                         #
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                        className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase"
                       >
                         {" "}
                         Service name
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                        className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase"
                       >
                         {" "}
                         Service Photo
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                        className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase"
                       >
                         {" "}
                         Review
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase"
+                        className="px-6 py-3 text-right text-md font-medium text-gray-500 uppercase"
                       >
                         Action
                       </th>

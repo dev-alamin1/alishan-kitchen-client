@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="mt-5 mb-10">
+    <div className="mt-10 md:mt-24 mb-10">
       <div className="hero  bg-base-50 rounded-md">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="md:w-1/2">
@@ -16,7 +16,7 @@ const Banner = () => {
           <div className="md:w-1/2">
             <h1 className="text-5xl font-bold">
               WELCOME TO <br />
-              <span className="text-blue-400">Mimi KITCHEN !</span>
+              <span className="text-blue-400 mt-2">Mimi's KITCHEN !</span>
             </h1>
             <p className="py-6">
               Mimi Kitchen is a kind of cloud kitchen. Here, cooking tips and

@@ -18,7 +18,7 @@ const EditReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          toast.success("User updated");
+          toast.success("Review updated");
         }
       });
   };
