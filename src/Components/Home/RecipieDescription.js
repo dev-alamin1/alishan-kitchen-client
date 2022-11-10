@@ -95,8 +95,9 @@ const RecipieDescription = () => {
             </PhotoProvider>
           </figure>
           <div className="card-body">
-            <h2 className="card-title">{foodName}</h2>
-            <p>{description}</p>
+            <h2 className="card-title text-3xl">{foodName}</h2>
+            <h2 className="card-title">{description}</h2>
+            <h2 className="card-title">Price :{price}Tk</h2>
 
             <div className="grid md:grid-cols-2 justify-center gap-2 ">
               <div>

@@ -18,7 +18,7 @@ const Newsletter = () => {
         <p className="mt-2 max-w-xl text-base text-gray-400">
           Sign up for our newsletter and I will email you every time we release a new cooking tips and Food Service.
         </p>
-        <form>
+       
             <div className="sm:flex jusitfy-start mt-6">
                 <form className="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
                     <div className=" relative ">
@@ -29,7 +29,7 @@ const Newsletter = () => {
                         </button>
                     </form>
                 </div>
-            </form>
+    
             <div className="hidden lg:block absolute inset-y-0 lg:left-2/3 xl:left-1/2 right-0">
                 <picture>
                     <source srcSet="https://i.ibb.co/7QQt2YD/tips.jpg" type="image/webp"/>

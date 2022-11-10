@@ -1,19 +1,27 @@
-import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Helmet } from "react-helmet-async";
-import { AuthContext } from "../../Context/Authprovider";
 
 const AllFoodService = () => {
-  const allRecipes = useLoaderData();
-  const { loading } = useContext(AuthContext);
+  const [allRecipes, setAllRecipies] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/foodservices`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllRecipies(data);
+        setLoading(false);
+      });
+  }, []);
 
   if (loading) {
     return <progress className="progress w-full"></progress>;
   }
 
   return (
-    <div className="w-full bg-white p-12">
+    <div className="w-full bg-slate-300 p-12">
       <Helmet>
         <title>Mimi Kitchen - AlL Food Service</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
@@ -24,7 +32,7 @@ const AllFoodService = () => {
           <p className="text-4xl font-bold text-gray-800 mb-4">
             My All Recipes
           </p>
-          <p className="text-2xl font-light text-gray-400">
+          <p className="text-2xl font-light text-gray-700">
             You will also make this Recipe at your . I have added the material
             and cooking instruction for you. so that ,you can follw this
             instruction and make the recipies
@@ -36,7 +44,7 @@ const AllFoodService = () => {
         {allRecipes.map((recipe) => (
           <div
             key={recipe._id}
-            className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-96 cursor-pointer m-auto"
+            className="overflow-hidden shadow-lg rounded-lg h-90 w-full cursor-pointer m-auto"
           >
             <PhotoProvider>
               <PhotoView src={recipe.photoURL}>
@@ -50,11 +58,9 @@ const AllFoodService = () => {
             </PhotoProvider>
 
             <div className="bg-white dark:bg-gray-800 w-full p-4">
-              <p className="text-indigo-500 text-md font-medium">
-                {recipe.foodName}
-              </p>
+              <p className="text-indigo-500 text-2xl">{recipe.foodName}</p>
 
-              <p className="text-gray-800 dark:text-white mt-5 mb-2">
+              <p className="text-gray-800 dark:text-white text-1xl mt-5 mb-2">
                 {recipe.description.slice(0, 100) + "..."}
               </p>
 
