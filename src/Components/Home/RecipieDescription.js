@@ -4,6 +4,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import Foodreview from "../FoodService/Foodreview";
 import { AuthContext } from "../../Context/Authprovider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const RecipieDescription = () => {
   const recipe = useLoaderData();
@@ -75,6 +76,12 @@ const RecipieDescription = () => {
 
   return (
     <div>
+
+          <Helmet>
+                <title>Joya Kitchen - Food Service Details</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+           </Helmet>
+
       <div className="md:w-2/3 px-10 md:mx-auto py-10 ">
         <div className="card card-compact w-auto bg-base-100 shadow-xl">
           <figure>

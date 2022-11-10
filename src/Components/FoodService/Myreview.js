@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 import { HiOutlineTrash } from "react-icons/hi";
 import { AuthContext } from "../../Context/Authprovider";
 import Myreviewrow from "./Myreviewrow";
@@ -16,44 +18,61 @@ const Myreview = () => {
     }
   }, [user?.uid]);
 
-  // this for load ,food service name under this review
+ // review delete handler 
+
+ const reviewDeleteHandler = id=>{
+       fetch(`http://localhost:5000/delete/${id}`,{
+        method:'DELETE'
+       }).then(res=>res.json())
+         .then(data=>{
+            if(data.deleteSuccess)
+            {
+                 toast.success("Delete success ");
+                 const remainingFoodService = reviews.filter(review=>review._id !== id);
+                 setReviews(remainingFoodService);
+
+            }
+         })
+
+ }
 
   return (
     <div>
-      {reviews.length === 0 ? (
+         <Helmet>
+                <title>Joya Kitchen - Review</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+           </Helmet>
+
+      {reviews.length === 0 ? 
         <div className="h-screen flex justify-center items-center">
           <h2 className="text-5xl">No review found !</h2>
         </div>
-      ) : (
-        <table className="table p-4 bg-white shadow rounded-lg w-3/4 mx-auto mt-5">
-          <thead>
-            <tr>
-              <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
-                #
-              </th>
-              <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
-                Service name
-              </th>
-
-              <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
-                Service Photo
-              </th>
-
-              <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
-                Review
-              </th>
-              <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {reviews.map((review, index) => (
-              <Myreviewrow key={review._id} index={index} review={review} />
-            ))}
-          </tbody>
-        </table>
-      )}
+       : 
+       <div className="flex flex-col px-10 md:px-20">
+       <div className="-m-1.5 overflow-x-auto">
+         <div className="p-1.5 min-w-full inline-block align-middle">
+           <div className="overflow-hidden">
+             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+               <thead>
+                 <tr>
+                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">#</th>
+                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"> Service name</th>
+                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"> Service Photo</th>
+                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"> Review</th>
+                   <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">Action</th>
+                 </tr>
+               </thead>
+               <tbody>
+                        {
+                            reviews.map((review,index)=><Myreviewrow key={review._id} index={index} review={review} reviewDeleteHandler={reviewDeleteHandler} />)
+                        }
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+     </div>
+      }
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Login from "../Components/Auth/Login";
 import Register from "../Components/Auth/Register";
 import Addfood from "../Components/FoodService/Addfood";
 import AllFoodService from "../Components/FoodService/AllFoodService";
+import EditReview from "../Components/FoodService/EditReview";
 import Foodreview from "../Components/FoodService/Foodreview";
 import Myreview from "../Components/FoodService/Myreview";
 import Homepage from "../Components/Home/Homepage";
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
             {
                 path:'/myreview',
                 element: <PrivateRoute><Myreview/></PrivateRoute>
+            }
+            ,
+            {
+                path:'/edit/review/:id',
+                loader:({params})=> fetch(`http://localhost:5000/edit/feedback/${params.id}`),
+                element:<EditReview/>
             }
             ,
             {

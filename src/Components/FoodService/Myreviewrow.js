@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const Myreviewrow = ({review,index}) => {
+const Myreviewrow = ({review,index,reviewDeleteHandler}) => {
 
     const [foodServiceInfo, setFoodServiceInfo] = useState([]);
     const {foodName,photoURL} = foodServiceInfo;
@@ -14,22 +15,23 @@ const Myreviewrow = ({review,index}) => {
 
 
     return (
-          <tr className="text-gray-700" >
-                <td className="border-b-2 p-4 dark:border-dark-5">{index+1}</td>
-                
-                <td className="border-b-2 p-4 dark:border-dark-5">{foodName}</td>
+        <tr className="odd:bg-white even:bg-gray-100 dark:odd:bg-gray-800 dark:even:bg-gray-700">
+            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">{index+1}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">{foodName}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><img src={photoURL} alt="" className='w-20' /></td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{review.feedback}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
-                <td className="border-b-2 p-4 dark:border-dark-5">
-                    <img src={photoURL} alt="" className='w-20' />
-                </td>
+            <button onClick={()=>reviewDeleteHandler(review._id)} className="btn btn-outline btn-warning btn-sm">
+                Delete
+            </button>
 
-                <td className="border-b-2 p-4 dark:border-dark-5">{review.feedback}</td>
-                <td className="border-b-2 p-4 dark:border-dark-5">
-                <button className="btn btn-outline btn-warning btn-sm">
-                    Delete
-                </button>
-                </td>
-          </tr>
+            <Link className='ml-2' to={`/edit/review/${review._id}`}><button className="btn btn-outline btn-warning btn-sm">
+                Edit 
+            </button></Link>
+
+            </td>
+      </tr>
     );
 };
 

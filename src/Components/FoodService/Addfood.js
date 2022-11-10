@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 
 const Addfood = () => {
@@ -39,6 +40,12 @@ const Addfood = () => {
 
   return (
     <div className="">
+
+         <Helmet>
+                <title>Joya Kitchen - Add Food Service</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+           </Helmet>
+      
       <div className="card-body  w-3/4 mx-auto mb-10 bg-slate-300 rounded-md mt-10 hover:shadow-lg ">
         <h2 className="text-center text-2xl font-bold text-orange-600">Add Food Recipies</h2>
         <form onSubmit={submitHandler}>

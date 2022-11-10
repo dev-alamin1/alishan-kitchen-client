@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Authprovider";
@@ -6,7 +7,7 @@ import "./Login.css";
 
 const Login = () => {
 
-  const {logIn,logInWithGoogle,logInWithGithub} = useContext(AuthContext);
+  const {logIn,logInWithGoogle,logInWithGithub,loading} = useContext(AuthContext);
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -90,8 +91,20 @@ const Login = () => {
           
   }
 
+  // set loading 
+
+  if(loading)
+  {
+    return <progress className="progress w-full"></progress>
+  }
+
+
   return (
-    <div class="auth-hero h-screen">
+    <div className="auth-hero h-screen">
+         <Helmet>
+                <title>Joya Kitchen - Login</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+           </Helmet>
       <div>
         <div className="card-body md:w-[450px] mx-auto shadow-lg mt-10 ">
           <form onSubmit={submitHandler}>

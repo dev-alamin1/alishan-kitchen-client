@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Authprovider";
@@ -7,7 +8,7 @@ import "./Register.css";
 const Register = () => {
 
   const {createUser,updateNameAndPhoto,
-    registerWithGoogle,registerWithGithub} = useContext(AuthContext);
+    registerWithGoogle,registerWithGithub,loading} = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -118,9 +119,21 @@ const Register = () => {
           .catch(error=>setError({ ...error, generalError: error.message }))
   }
 
+  // set loading 
+
+  if(loading)
+  {
+    return <progress className="progress w-full"></progress>
+  }
 
   return (
     <div className="auth-hero">
+
+         <Helmet>
+                <title>Joya Kitchen - Register</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+           </Helmet>
+
       <div>
         <div className="card-body md:w-[450px] mx-auto shadow-lg mt-10 ">
           <form onSubmit={submitHandler}>
