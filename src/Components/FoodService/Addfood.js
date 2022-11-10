@@ -23,7 +23,7 @@ const Addfood = () => {
     };
 
     // send data to server
-    fetch("http://localhost:5000/addFoodService", {
+    fetch("https://alishan-kitchen.vercel.app/addFoodService", {
       method: "POST",
       headers: {
         "content-type": "application/json",

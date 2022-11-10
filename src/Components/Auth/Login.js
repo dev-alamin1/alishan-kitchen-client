@@ -81,7 +81,7 @@ const Login = () => {
         }
 
           // get jwt token
-          fetch('http://localhost:5000/jwt',{
+          fetch('https://alishan-kitchen.vercel.app/jwt',{
             method:'POST',
             headers:{
               'content-type':'application/json'
@@ -113,7 +113,7 @@ const Login = () => {
         }
 
           // get jwt token
-          fetch('http://localhost:5000/jwt',{
+          fetch('https://alishan-kitchen.vercel.app/jwt',{
             method:'POST',
             headers:{
               'content-type':'application/json'
@@ -145,7 +145,7 @@ const Login = () => {
         }
 
           // get jwt token
-          fetch('http://localhost:5000/jwt',{
+          fetch('https://alishan-kitchen.vercel.app/jwt',{
             method:'POST',
             headers:{
               'content-type':'application/json'
@@ -173,12 +173,12 @@ const Login = () => {
   }
 
   return (
-    <div className="auth-hero h-screen">
+    <div className="auth-hero h-[500px] md:h-[600px]">
       <Helmet>
         <title>Alishan Kitchen - Login</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
-      <div>
+      <div className="md:h-600">
         <div className="card-body md:w-[450px] mx-auto shadow-lg mt-10 ">
           <form onSubmit={submitHandler}>
             <div className="form-control">

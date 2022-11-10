@@ -15,7 +15,7 @@ const Myreview = () => {
      if(user?.email)
      {
 
-      fetch(`http://localhost:5000/feedback?email=${user?.email}`,{
+      fetch(`https://alishan-kitchen.vercel.app/feedback?email=${user?.email}`,{
         headers:{
           authorization: `Bearer ${localStorage.getItem('alishanToken')}`
         }
@@ -41,7 +41,7 @@ const Myreview = () => {
   // review delete handler
 
   const reviewDeleteHandler = (id) => {
-    fetch(`http://localhost:5000/delete/${id}`, {
+    fetch(`https://alishan-kitchen.vercel.app/delete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

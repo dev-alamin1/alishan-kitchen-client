@@ -9,7 +9,7 @@ const AllFoodService = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foodservices`)
+    fetch(`https://alishan-kitchen.vercel.app/foodservices`)
       .then((res) => res.json())
       .then((data) => {
         setAllRecipies(data);

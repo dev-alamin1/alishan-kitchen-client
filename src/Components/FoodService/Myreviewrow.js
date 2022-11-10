@@ -7,7 +7,7 @@ const Myreviewrow = ({ review, index, reviewDeleteHandler }) => {
 
   // load food service info , when get reivew.recipeId.
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${review.recipePostId}`)
+    fetch(`https://alishan-kitchen.vercel.app/services/${review.recipePostId}`)
       .then((res) => res.json())
       .then((data) => setFoodServiceInfo(data));
   }, [review]);
@@ -18,7 +18,7 @@ const Myreviewrow = ({ review, index, reviewDeleteHandler }) => {
         {index + 1}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-800 dark:text-gray-200">
-        {foodName}
+        {foodName?.slice(0,20)+'...'}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-md text-gray-800 dark:text-gray-200">
         <img src={photoURL} alt="" className="w-20" />

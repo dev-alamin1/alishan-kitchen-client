@@ -15,7 +15,7 @@ const RecipieDescription = () => {
   const [reviews, setReview] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/feedback/${recipe._id}`)
+    fetch(`https://alishan-kitchen.vercel.app/feedback/${recipe._id}`)
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [reviewReload, recipe._id]);
@@ -56,7 +56,7 @@ const RecipieDescription = () => {
 
     // send to server with post api
 
-    fetch(`http://localhost:5000/add/feedback`, {
+    fetch(`https://alishan-kitchen.vercel.app/add/feedback`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

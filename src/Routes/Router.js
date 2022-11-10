@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                loader:()=> fetch(`http://localhost:5000/foodservices?limit=${3}`),
+                loader:()=> fetch(`https://alishan-kitchen.vercel.app/foodservices?limit=${3}`),
                 element:<Homepage/>,
                
             }
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path:'/recipe/description/:id',
                 element:<RecipieDescription/>,
-                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params})=> fetch(`https://alishan-kitchen.vercel.app/services/${params.id}`)
             }
             ,
             {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
             ,
             {
                 path:'/edit/review/:id',
-                loader:({params})=> fetch(`http://localhost:5000/edit/feedback/${params.id}`),
+                loader:({params})=> fetch(`https://alishan-kitchen.vercel.app/edit/feedback/${params.id}`),
                 element:<EditReview/>
             }
             ,

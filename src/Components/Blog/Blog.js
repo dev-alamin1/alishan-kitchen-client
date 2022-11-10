@@ -3,7 +3,9 @@ import React from "react";
 const Blog = () => {
   return (
     <div>
+     
       <div className="w-4/5 md:w-2/3  mx-auto py-20">
+      <h2 className="text-center text-5xl mb-10">Latest Blogs </h2>
         {/* first question */}
         <div
           tabIndex={0}
