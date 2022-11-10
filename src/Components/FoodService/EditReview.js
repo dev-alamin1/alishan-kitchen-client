@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
@@ -36,6 +37,12 @@ const EditReview = () => {
 
   return (
     <div className="h-screen">
+
+      <Helmet>
+        <title>Alishan Kitchen - Edit review</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
+
       <div className="flex flex-col mt-40 items-center w-2/4 mx-auto">
         <h2 className="text-4xl font-bold text-orange-500 mb-2">
           Edit your review{" "}

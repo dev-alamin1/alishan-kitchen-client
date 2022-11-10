@@ -1,8 +1,16 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const About = () => {
   return (
     <section className="dark:bg-gray-800 dark:text-gray-100">
+
+      <Helmet>
+        <title>Alishan Kitchen - About</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
+
       <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
         <div>
           <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
@@ -111,11 +119,17 @@ const About = () => {
               </div>
             </div>
             <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
-              <img
-                src="https://i.ibb.co/vJzw470/bg4.png"
-                alt=""
-                className="mx-auto rounded-lg  dark:bg-gray-500"
-              />
+
+            <PhotoProvider>
+                  <PhotoView src="https://i.ibb.co/vJzw470/bg4.png">
+                        <img
+                      src="https://i.ibb.co/vJzw470/bg4.png"
+                      alt=""
+                      className="mx-auto rounded-lg  dark:bg-gray-500"
+                    />
+                 </PhotoView>
+            </PhotoProvider>
+              
             </div>
           </div>
         </div>

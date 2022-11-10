@@ -7,13 +7,12 @@ import "./Login.css";
 
 const Login = () => {
   const { logIn, logInWithGoogle, logInWithGithub, loading } =
-  useContext(AuthContext);
+    useContext(AuthContext);
 
-  // login redirect 
+  // login redirect
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || '/';
-
+  const from = location.state?.from?.pathname || "/";
 
   // set user info
   const [userInfo, setUserInfo] = useState({
@@ -27,7 +26,6 @@ const Login = () => {
     passwordError: "",
     generalError: "",
   });
-
 
   // password validation
   const passwordHandler = (e) => {
@@ -71,32 +69,28 @@ const Login = () => {
     e.preventDefault();
 
     logIn(userInfo.email, userInfo.password)
-
       .then((result) => {
-
         const user = result.user;
-       
+
         const currentUser = {
-          email:user.email
-        }
+          email: user.email,
+        };
 
-          // get jwt token
-          fetch('https://alishan-kitchen.vercel.app/jwt',{
-            method:'POST',
-            headers:{
-              'content-type':'application/json'
-            },
-            body:JSON.stringify(currentUser)
-          })
-          .then(res=>res.json())
-          .then(data=>{
-          
-            // store token in localstorage 
-            localStorage.setItem('alishanToken',data.token);
+        // get jwt token
+        fetch("https://alishan-kitchen.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // store token in localstorage
+            localStorage.setItem("alishanToken", data.token);
             toast.success("Login success");
-           navigate(from, { replace: true });
-
-          })
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => console.log(error));
   };
@@ -104,32 +98,27 @@ const Login = () => {
   const googleLoginHandler = () => {
     logInWithGoogle()
       .then((result) => {
-
-
         const user = result.user;
-       
+
         const currentUser = {
-          email:user.email
-        }
+          email: user.email,
+        };
 
-          // get jwt token
-          fetch('https://alishan-kitchen.vercel.app/jwt',{
-            method:'POST',
-            headers:{
-              'content-type':'application/json'
-            },
-            body:JSON.stringify(currentUser)
-          })
-          .then(res=>res.json())
-          .then(data=>{
-          
-            // store token in localstorage 
-            localStorage.setItem('alishanToken',data.token);
+        // get jwt token
+        fetch("https://alishan-kitchen.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // store token in localstorage
+            localStorage.setItem("alishanToken", data.token);
             toast.success("Login success");
-           navigate(from, { replace: true });
-
-          })
-
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => console.log(error));
   };
@@ -137,31 +126,27 @@ const Login = () => {
   const githubLoginHandler = () => {
     logInWithGithub()
       .then((result) => {
-
         const user = result.user;
-       
+
         const currentUser = {
-          email:user.email
-        }
+          email: user.email,
+        };
 
-          // get jwt token
-          fetch('https://alishan-kitchen.vercel.app/jwt',{
-            method:'POST',
-            headers:{
-              'content-type':'application/json'
-            },
-            body:JSON.stringify(currentUser)
-          })
-          .then(res=>res.json())
-          .then(data=>{
-          
-            // store token in localstorage 
-            localStorage.setItem('alishanToken',data.token);
+        // get jwt token
+        fetch("https://alishan-kitchen.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // store token in localstorage
+            localStorage.setItem("alishanToken", data.token);
             toast.success("Login success");
-           navigate(from, { replace: true });
-
-          })
-
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => console.log(error));
   };

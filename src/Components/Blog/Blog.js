@@ -19,14 +19,13 @@ const Blog = () => {
               <table className="table table-zebra w-full">
                 <thead>
                   <tr>
-                    <th>Parameter</th>
                     <th>Sql</th>
                     <th>Nosql</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th>Definition</th>
+                   
                     <td>
                       SQL databases are primarily called <br /> RDBMS or
                       Relational Databases
@@ -38,7 +37,7 @@ const Blog = () => {
                   </tr>
 
                   <tr>
-                    <th>Design for</th>
+                  
                     <td>
                       Traditional RDBMS uses SQL syntax and queries <br />
                       to analyze and get the data for further insights. <br />
@@ -52,13 +51,13 @@ const Blog = () => {
                   </tr>
 
                   <tr>
-                    <th>Query Language</th>
+                   
                     <td>Structured query language (SQL)</td>
                     <td>No declarative query language</td>
                   </tr>
 
                   <tr>
-                    <th>Type</th>
+                
                     <td>SQL databases are table based databases</td>
                     <td>
                       NoSQL databases can be document based, <br /> key-value pairs,{" "}
@@ -68,7 +67,7 @@ const Blog = () => {
                   </tr>
 
                   <tr>
-                    <th>Variations</th>
+                  
                     <td>One type with minor variations.</td>
                     <td>
                       Many different types which include key-value <br /> stores,{" "}
@@ -77,7 +76,7 @@ const Blog = () => {
                   </tr>
 
                   <tr>
-                    <th>Best Used for</th>
+                   
                     <td>
                       RDBMS database is the right option for <br /> solving ACID
                       problems.
@@ -124,14 +123,14 @@ const Blog = () => {
               <table className="table table-zebra w-full">
                 <thead>
                   <tr>
-                    <th>Sl</th>
+                    
                     <th>Sql</th>
                     <th>Nosql</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th>1</th>
+                   
                     <td>
                       Javascript is a programming language that is used <br />
                       for writing scripts on the website.
@@ -140,7 +139,7 @@ const Blog = () => {
                   </tr>
 
                   <tr>
-                    <th>2</th>
+                   
                     <td>Javascript can only be run in the browsers.</td>
                     <td>
                       We can run Javascript outside the browser with <br />
@@ -149,13 +148,13 @@ const Blog = () => {
                   </tr>
 
                   <tr>
-                    <th>3</th>
+                   
                     <td>It is basically used on the client-side.</td>
                     <td>It is mostly used on the server-side.</td>
                   </tr>
 
                   <tr>
-                    <th>4</th>
+                   
                     <td>
                       Javascript is capable enough to add HTML and play <br />
                       with the DOM.
@@ -164,7 +163,7 @@ const Blog = () => {
                   </tr>
 
                   <tr>
-                    <th>5</th>
+                   
                     <td>
                       It is the upgraded version of ECMA script that uses <br />
                       Chrome’s V8 engine written in C++.
@@ -173,7 +172,7 @@ const Blog = () => {
                   </tr>
 
                   <tr>
-                    <th>6</th>
+                   
                     <td>
                       Some of the javascript frameworks are RamdaJS, TypedJS,
                       etc.

@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 
+
 const Addfood = () => {
   const submitHandler = (e) => {
     e.preventDefault();
@@ -41,6 +42,8 @@ const Addfood = () => {
 
   return (
     <div className="">
+
+      {/* dynamic title */}
       <Helmet>
         <title>Alishan Kitchen - Add Food Service</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
@@ -54,7 +57,7 @@ const Addfood = () => {
           <div className="grid md:grid-cols-2 gap-2">
             <div className="form-control">
               <label className="label">
-                <span className="label-text ">Food Name</span>
+                <span className="label-text ">Food Recipies Title</span>
               </label>
               <input
                 type="text"
@@ -94,7 +97,7 @@ const Addfood = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text ">Food Materials</span>
+              <span className="label-text ">Food Ingredients</span>
             </label>
             <div className="mt-4">
               <textarea

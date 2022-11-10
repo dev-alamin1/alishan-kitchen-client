@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Helmet } from "react-helmet-async";
 import RecipiesCard from "../Home/RecipiesCard";
 
 const AllFoodService = () => {

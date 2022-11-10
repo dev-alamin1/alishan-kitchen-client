@@ -6,6 +6,8 @@ import { AuthContext } from "../../Context/Authprovider";
 import "./Register.css";
 
 const Register = () => {
+
+  //receive data from Authcontext
   const {
     createUser,
     updateNameAndPhoto,
@@ -16,6 +18,8 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+
+  //store user info 
   const [userInfo, setUserInfo] = useState({
     name: "",
     photoURL: "",
@@ -23,22 +27,27 @@ const Register = () => {
     password: "",
   });
 
+  //set error 
   const [error, setError] = useState({
     emailError: "",
     passwordError: "",
     generalError: "",
   });
 
+  //store user name error
   const userNameHandler = (e) => {
     const name = e.target.value;
     setUserInfo({ ...userInfo, name: name });
   };
 
+  // user photo url
   const photURLHandler = (e) => {
     const photoURL = e.target.value;
     setUserInfo({ ...userInfo, photoURL: photoURL });
   };
 
+
+  //email store  and handle errro
   const userEmailHandler = (e) => {
     const email = e.target.value;
 
@@ -61,6 +70,7 @@ const Register = () => {
     }
   };
 
+  // password validation
   const passwordHandler = (e) => {
     const password = e.target.value;
 
@@ -80,6 +90,7 @@ const Register = () => {
     }
   };
 
+  // google register handler 
   const googleHander = () => {
     registerWithGoogle().then((result) => {
       toast.success("User register success");
@@ -87,6 +98,7 @@ const Register = () => {
     });
   };
 
+  // github handler
   const githubHander = () => {
     registerWithGithub().then((result) => {
       toast.success("User register success");
@@ -96,6 +108,7 @@ const Register = () => {
     });
   };
 
+  // form submit handler
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(userInfo);
@@ -115,7 +128,6 @@ const Register = () => {
   };
 
   // set loading
-
   if (loading) {
     return <progress className="progress w-full"></progress>;
   }
@@ -212,7 +224,7 @@ const Register = () => {
                 <span>
                   <small>
                     Already have an account ?
-                    <Link to={"/register"} className="hover:bg-red-200">
+                    <Link to={"/login"} className="hover:bg-red-200">
                       Login
                     </Link>
                   </small>
