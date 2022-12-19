@@ -20,50 +20,54 @@ const Login = () => {
     password: "",
   });
 
-  // store email and password error
-  const [error, setError] = useState({
-    emailError: "",
-    passwordError: "",
-    generalError: "",
-  });
+  // // store email and password error
+  // const [error, setError] = useState({
+  //   emailError: "",
+  //   passwordError: "",
+  //   generalError: "",
+  // });
 
   // password validation
   const passwordHandler = (e) => {
     const password = e.target.value;
 
-    if (password === "") {
-      setError({ ...error, passwordError: "Password can not be empty " });
-      setUserInfo({ ...userInfo, password: "" });
-    } else if (password.length < 6) {
-      setError({
-        ...error,
-        passwordError: "Password at lest 6 characters length ",
-      });
-      setUserInfo({ ...userInfo, password: "" });
-    } else {
-      setError({ ...error, passwordError: "" });
-      setUserInfo({ ...userInfo, password: password });
-    }
+    // if (password === "") {
+    //   setError({ ...error, passwordError: "Password can not be empty " });
+    //   setUserInfo({ ...userInfo, password: "" });
+    // } else if (password.length < 6) {
+    //   setError({
+    //     ...error,
+    //     passwordError: "Password at lest 6 characters length ",
+    //   });
+    //   setUserInfo({ ...userInfo, password: "" });
+    // } else {
+    //   setError({ ...error, passwordError: "" });
+    //   setUserInfo({ ...userInfo, password: password });
+    // }
+
+    setUserInfo({ ...userInfo, password: password });
   };
 
   // email error handle 
   const emailHandler = (e) => {
     const email = e.target.value;
 
-    if (email === "") {
-      setError({ ...error, emailError: " Email must not be empty " });
-      setUserInfo({ ...userInfo, email: "" });
-    } else if (
-      !email.match(
-        /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
-      )
-    ) {
-      setError({ ...error, emailError: " Please provide a valid email " });
-      setUserInfo({ ...userInfo, email: "" });
-    } else {
-      setError({ ...error, emailError: "" });
-      setUserInfo({ ...userInfo, email: email });
-    }
+    // if (email === "") {
+    //   setError({ ...error, emailError: " Email must not be empty " });
+    //   setUserInfo({ ...userInfo, email: "" });
+    // } else if (
+    //   !email.match(
+    //     /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
+    //   )
+    // ) {
+    //   setError({ ...error, emailError: " Please provide a valid email " });
+    //   setUserInfo({ ...userInfo, email: "" });
+    // } else {
+    //   setError({ ...error, emailError: "" });
+    //   setUserInfo({ ...userInfo, email: email });
+    // }
+
+    setUserInfo({ ...userInfo, email: email });
   };
 
   //from submit handler
@@ -156,9 +160,9 @@ const Login = () => {
 
   // set loading
 
-  if (loading) {
-    return <progress className="progress w-full"></progress>;
-  }
+  // if (loading) {
+  //   return <progress className="progress w-full"></progress>;
+  // }
 
   return (
     <div className="auth-hero h-[500px] md:h-[600px]">
@@ -181,13 +185,13 @@ const Login = () => {
                 required
                 onChange={emailHandler}
               />
-              {error.emailError && (
+              {/* {error.emailError && (
                 <label className="label">
                   <p className="label-text-alt link text-red-400 font-bold link-hover">
                     {error.emailError}
                   </p>
                 </label>
-              )}
+              )} */}
             </div>
 
             <div className="form-control">
@@ -203,21 +207,21 @@ const Login = () => {
                 onChange={passwordHandler}
               />
 
-              {error.passwordError && (
+              {/* {error.passwordError && (
                 <label className="label">
                   <p className="label-text-alt link text-red-400 font-bold link-hover">
                     {error.passwordError}
                   </p>
                 </label>
-              )}
+              )} */}
 
-              {error.generalError && (
+              {/* {error.generalError && (
                 <label className="label">
                   <p className="label-text-alt link text-red-400 font-bold link-hover">
                     {error.generalError}
                   </p>
                 </label>
-              )}
+              )} */}
 
               <label className="label">
                 <span>

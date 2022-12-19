@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Myreviewrow = ({ review, index, reviewDeleteHandler }) => {
-  const [foodServiceInfo, setFoodServiceInfo] = useState([]);
+  
+  const [foodServiceInfo, setFoodServiceInfo] = useState([]); 
   const { foodName, photoURL } = foodServiceInfo;
 
   // load food service info , when get reivew.recipeId.

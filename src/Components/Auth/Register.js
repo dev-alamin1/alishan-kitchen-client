@@ -127,10 +127,10 @@ const Register = () => {
       .catch((error) => setError({ ...error, generalError: error.message }));
   };
 
-  // set loading
-  if (loading) {
-    return <progress className="progress w-full"></progress>;
-  }
+  // // set loading
+  // if (loading) {
+  //   return <progress className="progress w-full"></progress>;
+  // }
 
   return (
     <div className="auth-hero">
