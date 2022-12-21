@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import RecipiesCard from "../Home/RecipiesCard";
+import Loading from "../Loading/Loading";
 
 const AllFoodService = () => {
   const [allRecipes, setAllRecipies] = useState([]);
@@ -18,7 +19,7 @@ const AllFoodService = () => {
   }, []);
 
   if (loading) {
-    return <progress className="progress w-full"></progress>;
+    return <Loading/>
   }
 
   return (

@@ -77,7 +77,7 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-1">
             <Link
               to="/"
-              className="text-2xl font-bold text-orange-400 font-[Poppins]"
+              className="text-2xl font-bold text-orange-400" style={{fontFamily:'Lobster',letterSpacing :'3px'}}
             >
              Alishan Kitchen 
             </Link>

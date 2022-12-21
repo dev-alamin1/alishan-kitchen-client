@@ -14,9 +14,9 @@ const Banner = () => {
             />
           </div>
           <div className="md:w-1/2">
-            <h1 className="text-5xl font-bold">
-              WELCOME TO <br />
-              <span className="text-blue-400 mt-2">Alishan KITCHEN !</span>
+            <h1 className="text-5xl font-bold text-center md:text-left" style={{fontFamily:'Lobster',letterSpacing :'3px'}}>
+              WELCOME TO <br /> 
+              <span className="text-blue-400 mt-4" style={{fontFamily:'Lobster',letterSpacing :'3px'}}>Alishan KITCHEN !</span>
             </h1>
             <p className="py-6">
               Alishan Kitchen is a kind of cloud kitchen. Here, cooking tips and
