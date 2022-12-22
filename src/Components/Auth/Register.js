@@ -6,7 +6,6 @@ import { AuthContext } from "../../Context/Authprovider";
 import "./Register.css";
 
 const Register = () => {
-
   //receive data from Authcontext
   const {
     createUser,
@@ -18,8 +17,7 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-
-  //store user info 
+  //store user info
   const [userInfo, setUserInfo] = useState({
     name: "",
     photoURL: "",
@@ -27,7 +25,7 @@ const Register = () => {
     password: "",
   });
 
-  //set error 
+  //set error
   const [error, setError] = useState({
     emailError: "",
     passwordError: "",
@@ -45,7 +43,6 @@ const Register = () => {
     const photoURL = e.target.value;
     setUserInfo({ ...userInfo, photoURL: photoURL });
   };
-
 
   //email store  and handle errro
   const userEmailHandler = (e) => {
@@ -90,21 +87,59 @@ const Register = () => {
     }
   };
 
-  // google register handler 
+  // google register handler
   const googleHander = () => {
     registerWithGoogle().then((result) => {
-      toast.success("User register success");
-      navigate("/");
+      const user = result.user;
+      console.log(user);
+
+      const currentUser = {
+        email: user.email,
+      };
+
+      // get jwt token
+      fetch("https://alishan-kitchen.vercel.app/jwt", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // store token in localstorage
+          localStorage.setItem("alishanToken", data.token);
+          toast.success("User register success");
+          navigate("/");
+        });
     });
   };
 
   // github handler
   const githubHander = () => {
     registerWithGithub().then((result) => {
-      toast.success("User register success");
-      navigate("/");
       const user = result.user;
       console.log(user);
+
+      const currentUser = {
+        email: user.email,
+      };
+
+      // get jwt token
+      fetch("https://alishan-kitchen.vercel.app/jwt", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // store token in localstorage
+          localStorage.setItem("alishanToken", data.token);
+          toast.success("User register success");
+          navigate("/");
+        });
     });
   };
 
@@ -116,9 +151,30 @@ const Register = () => {
       .then((result) => {
         updateNameAndPhoto(userInfo.name, userInfo.photoURL)
           .then(() => {
-            toast.success("User register success");
-            e.target.reset();
-            navigate("/");
+            // toast.success("User register success");
+            // e.target.reset();
+            // navigate("/");
+
+            // generate jwt token
+            const currentUser = {
+              email: userInfo.email,
+            };
+
+            // get jwt token
+            fetch("https://alishan-kitchen.vercel.app/jwt", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(currentUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                // store token in localstorage
+                localStorage.setItem("alishanToken", data.token);
+                toast.success("User register success");
+                navigate("/");
+              });
           })
           .catch((error) => {
             setError({ ...error, generalError: error.message });
